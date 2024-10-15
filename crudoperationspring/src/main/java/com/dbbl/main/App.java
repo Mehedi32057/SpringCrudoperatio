@@ -1,9 +1,14 @@
 package com.dbbl.main;
 
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import com.dbbl.Beans.Student;
+import com.dbbl.mappers.StudentRowMapper;
 import com.dbbl.resources.springconfigurationfile;
 
 public class App {
@@ -17,21 +22,21 @@ public class App {
 
 		// insert operation------------------------------------------
 //
-		int roll = 109;
-		String name = "Mohit";
-		int id = 111;
-
- String insert_sql_query = "INSERT INTO student VALUES(?,?,?)";
-
-		int count = myjdbcJdbcTemplate.update(insert_sql_query, roll, name, id);
-		if (count > 0) {
-			System.out.println("Inserting succesful");
-
-		} else {
-
-			System.out.println("Insert unsuccessful");
-
-		}
+//		int roll = 109;
+//		String name = "Mohit";
+//		int id = 111;
+//
+// String insert_sql_query = "INSERT INTO student VALUES(?,?,?)";
+//
+//		int count = myjdbcJdbcTemplate.update(insert_sql_query, roll, name, id);
+//		if (count > 0) {
+//			System.out.println("Inserting succesful");
+//
+//		} else {
+//
+//			System.out.println("Insert unsuccessful");
+//
+//		}
 //
 //		String name ="Bnis";
 //		int id = 103;
@@ -54,5 +59,17 @@ public class App {
 //		} else {
 //			System.out.println("Deletation is not successful");
 //		}
+		
+		//--------------------select option------------------
+	
+	String select_sql_query ="SELECT * FROM student";
+List<Student> std_list=	myjdbcJdbcTemplate.query(select_sql_query, new StudentRowMapper());
+	for(Student std :std_list) {
+		System.out.println("Rollno : "+std.getRoll());
+		System.out.println("Name : "+std.getName());
+	    System.out.println("Id : "+ std.getId());
+		System.out.println("================");
 	}
+}
+	
 }
