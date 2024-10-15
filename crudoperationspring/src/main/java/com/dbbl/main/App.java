@@ -16,22 +16,22 @@ public class App {
 		JdbcTemplate myjdbcJdbcTemplate = context.getBean(JdbcTemplate.class);
 
 		// insert operation------------------------------------------
+//
+		int roll = 109;
+		String name = "Mohit";
+		int id = 111;
 
-//		int roll = 102;
-//		String name = "Rakib";
-//		int id = 103;
+ String insert_sql_query = "INSERT INTO student VALUES(?,?,?)";
 
-		// String insert_sql_query = "INSERT INTO student VALUES(?,?,?)";
-//
-//		int count = myjdbcJdbcTemplate.update(insert_sql_query, roll, name, id);
-//		if (count > 0) {
-//			System.out.println("Inserting succesful");
-//
-//		} else {
-//
-//			System.out.println("Insert unsuccessful");
-//
-//		}
+		int count = myjdbcJdbcTemplate.update(insert_sql_query, roll, name, id);
+		if (count > 0) {
+			System.out.println("Inserting succesful");
+
+		} else {
+
+			System.out.println("Insert unsuccessful");
+
+		}
 //
 //		String name ="Bnis";
 //		int id = 103;
@@ -45,14 +45,14 @@ public class App {
 //			System.out.println("update unsuccessfull");
 //		}
 
-		int roll = 102;
-		String delete_sql_query = "DELETE FROM student WHERE std_roll=?";
-		int count = myjdbcJdbcTemplate.update(delete_sql_query, roll);
-		if (count > 0) {
-			System.out.println("deletation is success");
-
-		} else {
-			System.out.println("Deletation is not successful");
-		}
+//		int roll = 102;
+//		String delete_sql_query = "DELETE FROM student WHERE std_roll=?";
+//		int count = myjdbcJdbcTemplate.update(delete_sql_query, roll);
+//		if (count > 0) {
+//			System.out.println("deletation is success");
+//
+//		} else {
+//			System.out.println("Deletation is not successful");
+//		}
 	}
 }
