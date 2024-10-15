@@ -61,15 +61,37 @@ public class App {
 //		}
 		
 		//--------------------select option------------------
+//	
+//	String select_sql_query ="SELECT * FROM student";
+//List<Student> std_list=	myjdbcJdbcTemplate.query(select_sql_query, new StudentRowMapper());
+//	for(Student std :std_list) {
+//		System.out.println("Rollno : "+std.getRoll());
+//		System.out.println("Name : "+std.getName());
+//	    System.out.println("Id : "+ std.getId());
+//		System.out.println("================");
+//	}
+     //----------------select operation 2-----------------
+//      int  roll=102;
+//		String select_sql_query ="SELECT * FROM student WHERE std_roll=?";
+//	List<Student> std_list=	myjdbcJdbcTemplate.query(select_sql_query, new StudentRowMapper(),roll);
+//		for(Student std :std_list) {
+//			System.out.println("Rollno : "+std.getRoll());
+//			System.out.println("Name : "+std.getName());
+//		    System.out.println("Id : "+ std.getId());
+//			System.out.println("================");
+//		}
+//	
+		//----------------select operation 3--------------------------
 	
-	String select_sql_query ="SELECT * FROM student";
-List<Student> std_list=	myjdbcJdbcTemplate.query(select_sql_query, new StudentRowMapper());
-	for(Student std :std_list) {
-		System.out.println("Rollno : "+std.getRoll());
-		System.out.println("Name : "+std.getName());
-	    System.out.println("Id : "+ std.getId());
-		System.out.println("================");
-	}
-}
+		 int  roll=102;
+			String select_sql_query ="SELECT * FROM student WHERE std_roll=?";
+		Student std=	myjdbcJdbcTemplate.queryForObject(select_sql_query, new StudentRowMapper(),roll);
+			
+				System.out.println("Rollno : "+std.getRoll());
+				System.out.println("Name : "+std.getName());
+			    System.out.println("Id : "+ std.getId());
+				System.out.println("================");
 	
-}
+	
+	
+}}
